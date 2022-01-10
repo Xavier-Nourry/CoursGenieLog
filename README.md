@@ -14,7 +14,7 @@ Vous aurez aussi besoin d'un environnement Java fonctionnel.
 
 ## Organisation
 
-Nous allons réaliser avec vous __2 exercices__, le premier se concentrera sur _les bonnes pratiques_ de programmation en règle générale, tandis que le deuxième vous testera sur _l'architecture multicouches_.
+Nous allons réaliser avec vous __2 exercices__, le premier se concentrera sur _les bonnes pratiques_ de programmation en règle générale, tandis que le deuxième vous testera sur _la clean architecture_.
 
 Afin de vous aider dans la réalisation de cette exercice, nous vous fournissons une __librairie__.
 Celle-ci est directement dans le projet, en voici la documentation.
