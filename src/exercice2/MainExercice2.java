@@ -1,6 +1,12 @@
 package exercice2;
 
+import datamocklib.TxtHelper;
 import exercice2.models.*;
+
+import java.nio.file.Path;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class MainExercice2 implements Exo2 {
 
@@ -14,7 +20,21 @@ public class MainExercice2 implements Exo2 {
      */
     @Override
     public void displayPersonFromChambery() {
-        System.out.println("todo");
+        List<String> lines = TxtHelper.getDataFromTxt("D:\\Documents\\Etudes\\M2\\INFO909\\Groupe_HugoH\\CoursGenieLog\\persons.txt");
+        List<String[]> infos = new ArrayList<>();
+        for(int i = 0; i < lines.size(); i++){
+            infos.add(lines.get(i).split(","));
+        }
+        String[] currentPerson;
+        for(int j = 0; j < infos.size(); j++){
+            currentPerson = infos.get(j);
+            if(currentPerson[4].equals("Chambery")) {
+                for (int k = 0; k < currentPerson.length; k++) {
+                    System.out.print(currentPerson[k] + " ");
+                }
+                System.out.println();
+            }
+        }
     }
 
     /*
@@ -23,8 +43,26 @@ public class MainExercice2 implements Exo2 {
      * Tips : Vous avez dans la class Person la fonction getAge();
      */
     @Override
-    public void displayBoomers() {
-
+    public void displayBoomers() throws ParseException {
+        List<String> lines = TxtHelper.getDataFromTxt("D:\\Documents\\Etudes\\M2\\INFO909\\Groupe_HugoH\\CoursGenieLog\\persons.txt");
+        List<String[]> infos = new ArrayList<>();
+        for(int i = 0; i < lines.size(); i++){
+            infos.add(lines.get(i).split(","));
+        }
+        String[] currentPerson;
+        int currentPersonAge;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        for(int j = 0; j < infos.size(); j++){
+            currentPerson = infos.get(j);
+            if(currentPerson[3].equals("female")) {
+                currentPersonAge = year - (new SimpleDateFormat("dd/MM/yyyy").parse(currentPerson[2]).getYear());
+                if(currentPersonAge > 25){
+                    for (int k = 0; k < currentPerson.length; k++) {
+                        System.out.println(currentPerson[k]);
+                    }
+                }
+            }
+        }
     }
 
     /*
@@ -47,6 +85,7 @@ public class MainExercice2 implements Exo2 {
 
     public static void main(String[] args) {
         Exo2 exo2 = new MainExercice2();
-        exo2.displayBoomers();
+        exo2.displayPersonFromChambery();
+        //exo2.displayBoomers();
     }
 }

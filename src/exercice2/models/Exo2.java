@@ -1,5 +1,7 @@
 package exercice2.models;
 
+import java.text.ParseException;
+
 public interface Exo2 {
 
     /**
@@ -10,7 +12,7 @@ public interface Exo2 {
     /**
      * Display all the person older than 25 years old
      */
-    void displayBoomers();
+    void displayBoomers() throws ParseException;
 
     /**
      * Display females from the database
